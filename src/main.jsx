@@ -6,6 +6,6 @@ import EmployeeDashBoard from './components/DashBoard/EmployeeDashBoard'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Login/> */}
-    <EmployeeDashBoard/>
+    {/* <EmployeeDashBoard/> */}
   </StrictMode>,
 )
