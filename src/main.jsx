@@ -8,7 +8,7 @@ import AdminDashBoard from './components/DashBoard/AdminDashBoard'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Login/> */}
-    {/* <EmployeeDashBoard/> */}
-    <AdminDashBoard/>
+    <EmployeeDashBoard/>
+    {/* <AdminDashBoard/> */}
   </StrictMode>,
 )

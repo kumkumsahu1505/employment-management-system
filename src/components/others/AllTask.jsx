@@ -3,11 +3,11 @@ import React from 'react'
 export default function AllTask() {
   return (
     <div id='AllTaskId' className='bg-gradient-to-b from-gray-800 to-gray-900 p-5 rounded mt-5 overflow-auto h-40'>
-       <Tasks color="green-800"/>
-       <Tasks color="yellow-400"/>
-       <Tasks color="violet-800"/>
-       <Tasks color="orange-700"/>
-       <Tasks color="blue-400"/>
+       <Tasks color="green-900"/>
+       <Tasks color="zinc-700"/>
+       <Tasks color="blue-900"/>
+       <Tasks color="yellow-800"/>
+       <Tasks color="purple-900"/>
     </div>
   )
 }
