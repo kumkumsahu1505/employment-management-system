@@ -3,10 +3,10 @@ import React from 'react'
 export default function Task() {
   return (
     <div className='flex justify-between mt-10 gap-5'>
-       <TaskComponent taskType="New Task" color="blue-800" taskNo="0"/>
-       <TaskComponent color="green-800" taskType="Completed" taskNo="3"/>
-       <TaskComponent color="yellow-600" taskType="Accepted" taskNo="0"/>
-       <TaskComponent color="red-800" taskType="Failed" taskNo="1"/>
+       <TaskComponent taskType="New Task" color="zinc-700" taskNo="0"/>
+       <TaskComponent color="green-900" taskType="Completed" taskNo="3"/>
+       <TaskComponent color="gray-700" taskType="Accepted" taskNo="0"/>
+       <TaskComponent color="yellow-800" taskType="Failed" taskNo="1"/>
     </div>
   )
 }
