@@ -14,7 +14,7 @@ export default function TaskList() {
      <TaskListComponent color='orange-700' title='Make the youTube video'
     discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
      <TaskListComponent color='blue-400' title='Make the youTube video'
-    discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />  
+    discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
     </div>
   )
 }

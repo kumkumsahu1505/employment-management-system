@@ -2,3 +2,6 @@
 #taskList::-webkit-scrollbar{
    display:none ;
 }
+#AllTaskId::-webkit-scrollbar{
+    display:none;
+}
