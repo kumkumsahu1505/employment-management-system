@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Task() {
+export default function Task({data}) {
   return (
     <div className='flex justify-between mt-10 gap-5'>
        <TaskComponent taskType="New Task" color="zinc-700" taskNo="0"/>

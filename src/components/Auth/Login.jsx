@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
-export default function Login() {
+
+export default function Login({handleLogin}) {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     function handleSubmit(e){
        e.preventDefault();
-       console.log(email,password)
+       handleLogin(email,password)
        setemail("");
        setpassword("");
     }
+    
   return (
     <div className='flex justify-center items-center h-screen bg-gray-900'>
         <div className='border-2 border-green-900 px-18 py-30 bg-gray-800'>
