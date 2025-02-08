@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function TaskList() {
+export default function TaskList({data}) {
   return (
     <div id='taskList' className='h-[55%] w-full flex items-center justify-start gap-5 flex-nowrap  mt-10 rounded-t-2xl py-5 overflow-x-auto'>
       <TaskListComponent color='green-800' title='Make the youTube video'
