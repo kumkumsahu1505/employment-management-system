@@ -1,36 +1,69 @@
 import React from 'react'
+import AcceptTask from './AcceptTask';
+import NewTask from './NewTask';
+import FailedTask from './FailedTask';
+import CompletedTask from './CompleteTask';
 
-export default function TaskList({data}) {
+export default function TaskList({ data }) {
+  const color = ['pink-900', 'indigo-900', 'orange-950', 'blue-950', 'green-800', 'yellow-800'];
+
   return (
-    <div id='taskList' className='h-[55%] w-full flex items-center justify-start gap-5 flex-nowrap  mt-10 rounded-t-2xl py-5 overflow-x-auto'>
-      <TaskListComponent color='green-800' title='Make the youTube video'
-        discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
-      <TaskListComponent color='yellow-800' title='Make the youTube video'
-        discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
-      <TaskListComponent color='zinc-700' title='Make the youTube video'
-        discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
-      <TaskListComponent color='yellow-800' title='Make the youTube video'
-        discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
-      <TaskListComponent color='green-900' title='Make the youTube video'
-        discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
-      <TaskListComponent color='gray-700' title='Make the youTube video'
-        discription={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus fugit quidem ipsam numquam, iusto animi!"} />
-    </div>
-  )
-}
+    <div id='taskList' className='h-[55%] w-full flex items-center justify-start gap-5 flex-nowrap mt-10 rounded-t-2xl py-5 overflow-x-auto'>
+      {data.tasks.map((task, index) => {
+        if (task.activeTask) {
+          return (
+            <AcceptTask
+              key={index}
+              color={color[index % color.length]}  // Use modulo to prevent out of bounds
+              title={task.taskTitle}
+              description={task.taskDescription}
+              date={task.taskDate}
+              category={task.category}
+            />
+          );
+        }
 
-export function TaskListComponent({ color, title, discription }) {
-  return (
-    <div className={`flex-shrink-0
-    h-full w-[300px] bg-${color} rounded-xl p-5`}>
-      <div className='flex justify-between  items-center'>
-        <h3 className='bg-red-800 px-3 py-1 text-white text-sm font-semibold rounded-sm '>High</h3>
-        <h3 className='text-white text-sm font-semibold'>26 Nov 2025</h3>
-      </div>
-      <h2 className='text-white
-       text-2xl mt-5 font-bold'>{title}</h2>
-      <p className='text-sm mt-2 text-white '>{discription} </p>
+        if (task.failedTask) {
+          return (
+            <FailedTask
+              key={index}
+              color={color[index % color.length]}  // Use modulo to prevent out of bounds
+              title={task.taskTitle}
+              description={task.taskDescription}
+              date={task.taskDate}
+              category={task.category}
+            />
+          );
+        }
 
+        if (task.newTask) {
+          return (
+            <NewTask
+              key={index}
+              color={color[index % color.length]}  // Use modulo to prevent out of bounds
+              title={task.taskTitle}
+              description={task.taskDescription}
+              date={task.taskDate}
+              category={task.category}
+            />
+          );
+        }
+
+        if (task.completed) {
+          return (
+            <CompletedTask
+              key={index}
+              color={color[index % color.length]}  // Use modulo to prevent out of bounds
+              title={task.taskTitle}
+              description={task.taskDescription}
+              date={task.taskDate}
+              category={task.category}
+            />
+          );
+        }
+
+        return null;  // Return null if no conditions are met
+      })}
     </div>
-  )
+  );
 }

@@ -12,19 +12,19 @@ export default function App() {
     const [user, setUser] = useState(null)
     const [loggedInUser, setLoggedInUser] = useState(null)
     const authData = useContext(AuthContext)
-    // useEffect(() => {
-    //     if (authData) {
-    //         const loggedInUser = localStorage.getItem("loggedInUser")
-    //         if(loggedInUser){
-    //             setUser(loggedInUser.role);
-    //     }}
-    // }, [authData])
+
+     useEffect(()=>{
+      const LoggedInUser = localStorage.getItem("loggedInUser")
+      if(loggedInUser){
+        setUser(JSON.parse(LoggedInUser).role)
+        setLoggedInUser(JSON.parse(LoggedInUser).data)}
+     },[])
     const handleLogin=(email,password)=>{
         if (authData ) {
             const admin = authData.admin.find((a) => email == a.email && password == a.password)
             if(admin){
                 setUser("admin");
-                localStorage.setItem("loggedInUser",JSON.stringify({role:"admin"}))
+                localStorage.setItem("loggedInUser",JSON.stringify({role:"admin",data:admin}))
                 setLoggedInUser(admin);
             }
         
@@ -32,7 +32,7 @@ export default function App() {
             const employee = authData.employees.find((e) => email == e.email && password == e.password)
            if(employee){
                 setUser("employee");
-                localStorage.setItem("loggedInUser",JSON.stringify({role:"employee"}))
+                localStorage.setItem("loggedInUser",JSON.stringify({role:"employee",data:employee}))
                 setLoggedInUser(employee);
             }
         }
@@ -42,9 +42,10 @@ export default function App() {
     }
   return (
     <>
-    {!user?<Login handleLogin={handleLogin}/>:""}
-    {user==='admin'?<AdminDashBoard/>:(user==='employee' ?<EmployeeDashBoard data ={loggedInUser}/>:null)}
 
+    {!user?<Login handleLogin={handleLogin}/>:""}
+    {user==='admin'?<AdminDashBoard data={loggedInUser} />:(user==='employee' ?<EmployeeDashBoard data ={loggedInUser}/>:null)}
+    
     </>
   )
 }
