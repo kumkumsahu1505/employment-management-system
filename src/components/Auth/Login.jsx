@@ -12,7 +12,7 @@ export default function Login({handleLogin}) {
     }
     
   return (
-    <div className='flex justify-center items-center h-screen bg-gray-900'>
+    <div className='flex justify-center items-center h-screen bg-gray-900 '>
         <div className='border-2 border-green-900 px-18 py-30 bg-gray-800'>
             <form onSubmit={(e)=>handleSubmit(e)} className='flex flex-col gap-4' >
                 <input type="email" 
